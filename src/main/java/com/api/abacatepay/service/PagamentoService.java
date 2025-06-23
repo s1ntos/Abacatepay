@@ -5,6 +5,7 @@ import com.api.abacatepay.dto.AbacatePayResponse;
 import com.api.abacatepay.dto.PagamentoRequest;
 import com.api.abacatepay.dto.ProdutoDTO;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -74,11 +75,14 @@ public class PagamentoService {
                         "frequency", "ONE_TIME",
                         "methods", List.of("PIX"),
                         "products", List.of(produto),
-                        "returnUrl", "http://localhost:5500/frontend/obrigado.html", //rota ficticia
-                        "completionUrl", "http://localhost:5500/frontend/sucesso.html", //rota ficticia
+                        "returnUrl", "http://127.0.0.1:5501", //rota ficticia
+                        "completionUrl", "http://127.0.0.1:5501/frontend/", //rota ficticia
                         "customer", req.cliente
                 ))
                 .retrieve()
+                .onStatus(HttpStatusCode::isError, res ->
+                        res.bodyToMono(String.class).map(msg -> new RuntimeException("Erro da AbacatePay: " + msg))
+                )
                 .bodyToMono(Object.class)
                 .block();
     }
