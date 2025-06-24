@@ -76,7 +76,7 @@ public class PagamentoService {
                         "methods", List.of("PIX"),
                         "products", List.of(produto),
                         "returnUrl", "http://127.0.0.1:5501", //rota ficticia
-                        "completionUrl", "http://127.0.0.1:5501/frontend/", //rota ficticia
+                        "completionUrl", "http://127.0.0.1:5501/frontend/", 
                         "customer", req.cliente
                 ))
                 .retrieve()
