@@ -33,6 +33,7 @@ Este repositório segue boas práticas de versionamento e colaboração. Se dese
 2. *Crie um fork .*
 3. Crie uma *branch própria* a partir da main: branchs fora do padrão não será aceita
    bash
+   ```
    git checkout -b feat/sua-feature para funcionalidades
    git checkout -b fix/sua-fix para correção de bugs	
    git checkout -b ref/sua-refactor para refatorações
@@ -41,9 +42,9 @@ Este repositório segue boas práticas de versionamento e colaboração. Se dese
    git checkout -b chore/sua-chore para Tarefas administrativas ou de build
    git checkout -b style/sua-style para Mudanças visuais e de formatação
    git checkout -b hotfix/sua-hotfix para Correções urgentes em produção
-   
+   ```
 
-4. Crie um PR quand ofor mandar as alterações, observe o padrão.
+5. Crie um PR quand ofor mandar as alterações, observe o padrão.
 
  ### 🧠 Descrição
 [Descreva brevemente o que foi feito. O que esse PR entrega? Qual problema resolve?]
